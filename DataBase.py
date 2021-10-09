@@ -13,15 +13,25 @@ def create_connection(db_file):
     return conn
 
 
-def create_table(conn, create_table_sql):
+def create_table(conn):
     """ create a table from the create_table_sql statement
     :param conn: Connection object
     :param create_table_sql: a CREATE TABLE statement
     :return:
     """
+    sql_create_eletronics_table = """ CREATE TABLE IF NOT EXISTS eletronics (
+                                        id integer PRIMARY KEY,
+                                        row integer NOT NULL,
+                                        colum integer NOT NULL,
+                                        name text NOT NULL,
+                                        buy_date text,
+                                        n integer,
+                                        link text,
+                                        description text
+                                    ); """
     try:
         c = conn.cursor()
-        c.execute(create_table_sql)
+        c.execute(sql_create_eletronics_table)
     except Error as e:
         print(e)
 
