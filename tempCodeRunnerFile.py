@@ -1,2 +1,11 @@
-update_task(conn, (0, 0, 0, "Led Branco", '2021-10-08', 25,
-                    'link', "Led branco com diversos tamanhos"))
+
+    conn = DataBase.create_connection(r"db\eletronicos.db")
+
+    Interface_grafica.MainApp().run()
+
+    """ # create tables
+    if conn is not None:
+        # create projects table
+        DataBase.create_table(conn)
+
+    else:
