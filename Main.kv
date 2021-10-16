@@ -3,7 +3,7 @@
   Widget:
     size_hint:(.2, .2)
     Label: 
-      text:"PROJETO M.A.E"
+      text:"PROJECT M.A.E"
       font_size:70 
       center_x: root.width /3
       top: root.top - 10
@@ -12,23 +12,55 @@
     size_hint:(1, .8)
     
     BoxLayout:
+
       orientation: 'vertical'
       pos_hint: {'left': 1}
-      TextInput:
-        text:"Pesquisar"
-        font_size:50
-      Button:
-        
-      Label:
-        text: 'Name:'
-      Label:
-        text: 'Name:'
-      Label:
-        text: 'Name:'
-      Label:
-        text: 'Name:'
-      Label:
-        text: 'Name:'
+      BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+          id : pesquisa
+          text:"Pesquisar"
+          font_size:30
+          size_hint:(.8, .2)
+          on_text: 
+        Button:
+          text:"Go"
+          size_hint:(.8, .2)
+          on_press: app.pesquisa()
+        BoxLayout:
+          size: root.size
+          BoxLayout:
+            orientation: 'vertical'
+            Label:
+              text: 'Name:'
+              halign: 'left'
+            Label:
+              text: 'Unity:'
+            Label:
+              text: 'Type:'
+            Label:
+              text: 'Buy date:'
+            Label:
+              text: 'Link:'
+            Label:
+              text: 'Description:'
+          BoxLayout:
+            orientation: 'vertical'
+            halign:"left"
+            Label:
+              text: 'name'
+            Label:
+              text: 'unity'
+            Label:
+              text: 'type'
+            Label:
+              text: 'buy date'
+            Label:
+              text: 'link'
+            Label:
+              text: 'description'
+          
+      
     BoxLayout:
       GridLayout:
         cols:8

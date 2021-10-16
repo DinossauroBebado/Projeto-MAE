@@ -11,5 +11,11 @@ class MainApp(App):
 
         return Inventario()
 
+    def pesquisa(self):
+        text = self.root.ids.pesquisa.text
+        print(text)
 
-MainApp().run()
+
+if __name__ == "__main__":
+
+    MainApp().run()
