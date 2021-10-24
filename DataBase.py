@@ -1,5 +1,10 @@
 import sqlite3
 from sqlite3 import Error
+import random
+
+
+def generate_id():
+    return random.randint(10, 30)
 
 
 def create_connection(db_file):
@@ -24,6 +29,7 @@ def create_table(conn):
                                         row integer NOT NULL,
                                         colum integer NOT NULL,
                                         name text NOT NULL,
+                                        type text,
                                         buy_date text,
                                         n integer,
                                         link text,
@@ -38,8 +44,8 @@ def create_table(conn):
 
 def add_item(conn, item):
 
-    sql = ''' INSERT INTO eletronics(id,row,colum,name,buy_date,n,link,description)
-              VALUES(?,?,?,?,?,?,?,?)
+    sql = ''' INSERT INTO eletronics(id,row,colum,name,type,buy_date,n,link,description)
+              VALUES(?,?,?,?,?,?,?,?,?)
               '''
     cur = conn.cursor()
     cur.execute(sql, item)
@@ -59,8 +65,7 @@ def select_item_by_name(conn, name):
 
     rows = cur.fetchall()
 
-    for row in rows:
-        print(row)
+    return rows
 
 
 def select_all_items(conn):
