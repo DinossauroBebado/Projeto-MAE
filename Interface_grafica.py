@@ -75,8 +75,18 @@ class MainApp(App):
         self.update_info(text)
 
     def update_info(self, text):
+        try:
+            db_infos = self.check_db(text)
+        except:
+            self.root.ids.name.text = "Not Found"
+            self.root.ids.unity.text = "Not Found"
+            self.root.ids.pos.text = "Not Found"
+            self.root.ids.type.text = "Not Found"
+            self.root.ids.buy_date.text = "Not Found"
+            self.root.ids.link.text = "Not Found"
+            self.root.ids.description.text = "Not Found"
 
-        db_infos = self.check_db(text)
+            return
 
         pos = f"{db_infos['x']}_{db_infos['y']}"
         self.change_color(pos)
