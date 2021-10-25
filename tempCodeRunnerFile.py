@@ -1,1 +1,1 @@
-self.root.ids.pos.text
+change_color

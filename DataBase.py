@@ -30,7 +30,9 @@ def create_table(conn):
                                         colum integer NOT NULL,
                                         name text NOT NULL,
                                         type text,
-                                        buy_date text,
+                                        buy_date_day integer,
+                                        buy_date_month integer,
+                                        buy_date_year integer,
                                         n integer,
                                         link text,
                                         description text
@@ -44,8 +46,8 @@ def create_table(conn):
 
 def add_item(conn, item):
 
-    sql = ''' INSERT INTO eletronics(id,row,colum,name,type,buy_date,n,link,description)
-              VALUES(?,?,?,?,?,?,?,?,?)
+    sql = ''' INSERT INTO eletronics(id,row,colum,name,type,buy_date_day,buy_date_month,buy_date_year,n,link,description)
+              VALUES(?,?,?,?,?,?,?,?,?,?,?)
               '''
     cur = conn.cursor()
     cur.execute(sql, item)
